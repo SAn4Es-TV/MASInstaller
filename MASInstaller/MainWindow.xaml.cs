@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.Win32;
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,6 +15,7 @@ using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Drawing;
 
 namespace MASInstaller
 {
@@ -21,6 +24,7 @@ namespace MASInstaller
     /// </summary>
     public partial class MainWindow : Window
     {
+        bool flag = false;
         public MainWindow()
         {
             InitializeComponent();
@@ -32,8 +36,6 @@ namespace MASInstaller
             if (e.ChangedButton == MouseButton.Left)
                 this.DragMove();
         }
-
-
         // Скрываем окно
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -46,5 +48,30 @@ namespace MASInstaller
             this.Close();
         }
         #endregion
+        private void Settings_Click(object sender, RoutedEventArgs e)
+        {
+            DoubleAnimation buttonAnimation = new DoubleAnimation();
+            if (!flag)
+            {
+                buttonAnimation.From = this.ActualHeight;
+                buttonAnimation.To = 600;
+                buttonAnimation.Duration = TimeSpan.FromMilliseconds(200);
+            }
+            else
+            {
+                buttonAnimation.From = this.ActualHeight;
+                buttonAnimation.To = 450;
+                buttonAnimation.Duration = TimeSpan.FromMilliseconds(200);
+            }
+            flag = !flag;
+            this.BeginAnimation(MainWindow.HeightProperty, buttonAnimation);
+        }
+
+        private void ChangePath_Click(object sender, RoutedEventArgs e)
+        {
+            //FolderBrowserDialog folderBrowser = new FolderBrowserDialog();
+            /*if (folderBrowser.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                pathToInstall.Text = folderBrowser.SelectedPath;*/
+        }
     }
 }

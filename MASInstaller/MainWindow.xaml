@@ -4,13 +4,29 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MASInstaller"
+        xmlns:hc="https://handyorg.github.io/handycontrol"
         mc:Ignorable="d"
         WindowStyle="None"
         Title="MainWindow" Height="450" Width="750" ResizeMode="NoResize">
-    <Grid>
-        <Grid VerticalAlignment="Top" Height="35" Background="#FF20242A" MouseDown="Grid_MouseDown">
-            <Button Content="-" Background="#FF20242A" BorderBrush="{x:Null}" Foreground="#fff" HorizontalAlignment="Right" Margin="0,0,50,0" Width="50"  FontSize="24" FontWeight="Bold" FontStyle="Normal" Click="Button_Click"/>
-            <Button Content="X" Width="50" Background="#FF20242A" BorderBrush="{x:Null}" Foreground="#fff" HorizontalAlignment="Right" FontSize="24" Click="Button_Click_1"/>
+    <Grid >
+        <Grid Height="450" Width="750" VerticalAlignment="Top">
+            <Grid.Background>
+                <ImageBrush ImageSource="/Assets/monikaroomdaylight.jpg"/>
+            </Grid.Background>
+            <Grid VerticalAlignment="Top" Height="40" Background="#7F20242A" MouseDown="Grid_MouseDown">
+                <Button Content="-" Background="#0020242A" BorderBrush="{x:Null}" Foreground="#fff" HorizontalAlignment="Right" Margin="0,0,50,0" Width="50" Height="40"  FontSize="24" FontWeight="Bold" FontStyle="Normal" Click="Button_Click"/>
+                <Button Content="X" Width="50" Height="40" Background="#0020242A" BorderBrush="{x:Null}" Foreground="#fff" HorizontalAlignment="Right" FontSize="20" Click="Button_Click_1"/>
+            </Grid>
+            <Button x:Name="Install" Content="Установить" FontSize="24" Width="202" Margin="0,332,0,0" VerticalAlignment="Top" Height="56" Background="#f2d774"/>
+            <Button x:Name="Settings" Content="Установка" FontSize="24" Width="202" Margin="538,400,0,0" VerticalAlignment="Top" Height="40" Background="#00000000" Foreground="White" HorizontalAlignment="Left" BorderBrush="{x:Null}" Click="Settings_Click" />
+            <CheckBox Content="Я принимаю условия использования" FontSize="24" Foreground="#fff" VerticalAlignment="Bottom" Margin="20,0,212,10"/>
         </Grid>
+        <Grid Margin="0,450,0,0">
+            <Label Content="Выбрать путь установки" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,20,0,0" FontSize="24" BorderBrush="{x:Null}" Background="{x:Null}" />
+            <TextBox x:Name="pathToInstall" Text="C:\Games\SolicenTeam\MASlauncher" FontSize="18" Margin="20,56,157,48"   Foreground="#FF949494" BorderBrush="{x:Null}" Background="{x:Null}" SelectionTextBrush="#FFF2D774" SelectionBrush="#FF4C4C4C"/>
+            <Button x:Name="ChangePath" Content="Изменить" Background="#FF4C4C4C" Foreground="#FFF2D774" HorizontalAlignment="Left" Margin="608,60,0,0" VerticalAlignment="Top" Width="132" Height="38" FontSize="18" Click="ChangePath_Click"/>
+            <Label x:Name="Size" Content="Для распаковки требуется" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="20,0,0,20" FontSize="18"  BorderBrush="{x:Null}" Background="{x:Null}" Foreground="#FF949494" />
+        </Grid>
+
     </Grid>
 </Window>
